@@ -1,0 +1,10 @@
+C:\Users\marce\source\repos\.NET-Caelum\BancoApp\BancoApp\bin\Debug\BancoApp.exe.config
+C:\Users\marce\source\repos\.NET-Caelum\BancoApp\BancoApp\bin\Debug\BancoApp.exe
+C:\Users\marce\source\repos\.NET-Caelum\BancoApp\BancoApp\bin\Debug\BancoApp.pdb
+C:\Users\marce\source\repos\.NET-Caelum\BancoApp\BancoApp\obj\Debug\BancoApp.csprojAssemblyReference.cache
+C:\Users\marce\source\repos\.NET-Caelum\BancoApp\BancoApp\obj\Debug\BancoApp.Form1.resources
+C:\Users\marce\source\repos\.NET-Caelum\BancoApp\BancoApp\obj\Debug\BancoApp.Properties.Resources.resources
+C:\Users\marce\source\repos\.NET-Caelum\BancoApp\BancoApp\obj\Debug\BancoApp.csproj.GenerateResource.cache
+C:\Users\marce\source\repos\.NET-Caelum\BancoApp\BancoApp\obj\Debug\BancoApp.csproj.CoreCompileInputs.cache
+C:\Users\marce\source\repos\.NET-Caelum\BancoApp\BancoApp\obj\Debug\BancoApp.exe
+C:\Users\marce\source\repos\.NET-Caelum\BancoApp\BancoApp\obj\Debug\BancoApp.pdb
