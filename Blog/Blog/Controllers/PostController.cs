@@ -41,19 +41,17 @@ namespace Blog.Controllers
 
 		}
 
-
         public IActionResult Index()
         {			
 			return View(listaDePosts);
 		}
-
 
 		public IActionResult Novo()
 		{
 			return View();
 		}
 
-
+		[HttpPost]
 		public IActionResult Adiciona(Post post)
 		{
 			listaDePosts.Add(post);
