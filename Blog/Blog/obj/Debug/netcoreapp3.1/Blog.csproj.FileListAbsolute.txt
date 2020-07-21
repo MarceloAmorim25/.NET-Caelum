@@ -30,3 +30,4 @@ C:\Users\marce\source\repos\.NET-Caelum\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.p
 C:\Users\marce\source\repos\.NET-Caelum\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.genruntimeconfig.cache
 C:\Users\marce\source\repos\.NET-Caelum\Blog\Blog\obj\Debug\netcoreapp3.1\Blog.csproj.CopyComplete
 C:\Users\marce\source\repos\.NET-Caelum\Blog\Blog\obj\Debug\netcoreapp3.1\Razor\Views\Post\Index.cshtml.g.cs
+C:\Users\marce\source\repos\.NET-Caelum\Blog\Blog\obj\Debug\netcoreapp3.1\Razor\Views\Post\Novo.cshtml.g.cs
