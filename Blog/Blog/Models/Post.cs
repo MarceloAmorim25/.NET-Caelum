@@ -14,5 +14,6 @@ namespace Blog.Models
         public string Resumo { get; set; }
         public string Categoria { get; set; }
 
+
     }
 }
