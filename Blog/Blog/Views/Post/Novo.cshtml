@@ -1,31 +1,55 @@
-﻿
+﻿@model Blog.Models.Post
+
+    <!DOCTYPE html>
+    <html>
+
+        <head>
+            <meta name="viewport" content="width=device-width" />
+            <title>Novo Post</title>
+        </head>
+
+        <body>
+            <div>
+
+                <form action="/Post/Adiciona" method="post">
+
+                    <label>
+                        Título: <input type="text" value="@Model.Titulo" name="titulo" maxlength="50" required />
+                    </label>
+                    @Html.ValidationMessage("titulo")
 
 
-    <form action="/Post/Adiciona" method="post">
+                    <br />
 
-        <label>
-            Título:
-        </label>
-        <input type="text" name="titulo" />
+                    <label>
+                        Resumo: <input name="resumo" value="@Model.Resumo" required />
+                    </label>
+                    @Html.ValidationMessage("resumo")
 
-        <br />
 
-        <label>
-            Resumo:
-        </label>
+                    <br />
 
-        <textarea cols="20" rows="20" name="resumo"></textarea>
 
-        <br />
+                    <label>
+                        Categoria:<input name="categoria" value="@Model.Categoria" />
+                    </label>
+                    @Html.ValidationMessage("categoria")
 
-        <label>
-            Categoria:
-        </label>
+                    <br />
 
-             <input type="text" name="categoria" />
+                    <button type="submit">Cadastrar</button>
 
-        <br />
+                </form>
+            </div>
 
-        <button type="submit">Cadastrar</button>
+            <script src="~/js/jquery.js"></script>
+            <script src="~/js/jquery.validate.js"></script>
 
-    </form>
+            <script>
+                $("form").validate();
+            </script>
+
+        </body>
+
+    </html>
+
