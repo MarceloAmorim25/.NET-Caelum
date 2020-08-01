@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administração - Resenha Cultural</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <link href="~/css/estilo-admin.css" type="text/css" rel="stylesheet" />
+    <link href="~/css/jquery-ui.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+
+    @Html.Partial("MenuAdmin")
+
+    <main>
+
+        @RenderBody()
+
+    </main>
+
+    @RenderSection("Scripts", false)
+
+</body>
+</html>

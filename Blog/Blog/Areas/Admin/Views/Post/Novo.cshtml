@@ -1,0 +1,23 @@
+﻿@model Blog.Models.Post
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Novo Post</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Adiciona", "Post"))
+        {
+            @Html.EditorFor(p => p)
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        }
+    </div>
+    <script src="~/js/jquery.js"></script>
+    <script src="~/js/jquery.validate.js"></script>
+    <script src="~/js/jquery.validate.unobtrusive.js"></script>
+</body>
+</html>
+

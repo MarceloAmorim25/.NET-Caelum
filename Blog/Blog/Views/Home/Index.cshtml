@@ -1,16 +1,10 @@
-﻿<html>
+﻿@model IList<Post>
 
-    <head>
+@foreach (var p in Model)
+{
+     <article>
+           <h1>@p.Titulo</h1>
+           <p>@p.Resumo</p>
+     </article>
+}
 
-    </head>
-
-    <body>
-        <h2>Olá	mundo	com	ASP.NET	Core	MVC</h2>
-
-        <a href="/post">
-            Ver Posts
-        </a>
-
-    </body>
-
-</html>

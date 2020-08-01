@@ -11,25 +11,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Blog.Controllers
+namespace Blog.Areas.Admin.Controllers
 {
-    public class PostController : Controller
+	[Area("Admin")]
+	public class PostController : Controller
     {
 
 		private IList<Post> listaDePosts;
+		private PostDAO dao;
 
-		public PostController()
+		public PostController(PostDAO dao)
         {
-			listaDePosts = new List<Post>();								
+			listaDePosts = new List<Post>();
+			this.dao = dao;
 		}
 
         public IActionResult Index()
         {
-
-			var listaDePosts = new PostDAO().Lista();
-
+			var listaDePosts = dao.Lista();
 			return View(listaDePosts);
-
 		}
 		
 		public IActionResult Novo()
@@ -40,9 +40,8 @@ namespace Blog.Controllers
 
 		public IActionResult BuscarPorCategoria(string categoria)
         {
-			List<Post> lista = new PostDAO().FiltraPorCategoria(categoria);
+			List<Post> lista = dao.FiltraPorCategoria(categoria);
 			return View("Index", lista);	
-
 		}
 
 		[HttpPost]
@@ -50,10 +49,9 @@ namespace Blog.Controllers
 		{
             if (ModelState.IsValid)
             {
-				PostDAO dao = new PostDAO();
 				dao.Adiciona(post);
-
 				return View("Index", listaDePosts);
+
             }
             else
             {
@@ -61,35 +59,40 @@ namespace Blog.Controllers
             }
 		}
 
+		[HttpPost]
+		public IActionResult Edita(Post post)
+		{
+			if (ModelState.IsValid)
+			{
+				dao.Atualiza(post);
+				return RedirectToAction("Index");
+			}
+			else
+			{
+				return View("Visualiza", post);
+			}
+		}
+
 		public IActionResult Remove(int id)
 		{
-			PostDAO dao = new PostDAO();
 			dao.Remove(id);
 
 			return RedirectToAction("Index");
 		}
 
-		[HttpPost]
-		public IActionResult Edita(Post post)
-		{
-			if(ModelState.IsValid)
-            {
-				PostDAO dao = new PostDAO();
-				dao.Atualiza(post);
-				return RedirectToAction("Index");
-
-			}else
-            {
-				return View("Visualiza", post);
-            }
-
-		}
-
 		public IActionResult Publica(int id)
 		{
-			PostDAO dao = new PostDAO();
+	
 			dao.Publica(id);
 			return RedirectToAction("Index");
+		}
+
+		public IActionResult Visualiza(int id)
+		{
+		
+			var post = dao.BuscaPorId(id);
+
+			return View(post);
 		}
 
 	}

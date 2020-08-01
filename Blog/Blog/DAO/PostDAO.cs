@@ -11,68 +11,81 @@ using System.Threading.Tasks;
 namespace Blog.DAO
 {
     public class PostDAO
-    {	      
-		public List<Post> Lista()
+    {
+
+        private BlogContext contexto;
+
+        public PostDAO(BlogContext contexto)
         {
-			using(BlogContext contexto = new BlogContext())
-            {
-				List<Post> posts = contexto.Posts.ToList();
-				return posts;
-            };
+            this.contexto = contexto;
+        }
+
+        public List<Post> Lista()
+        {			
+			List<Post> posts = contexto.Posts.ToList();
+			return posts;           
         }
 
 		public void Adiciona(Post post)
-        {
-            using (BlogContext contexto = new BlogContext())
-            {
-                contexto.Add(post);
-                contexto.SaveChanges();
-            };
+        {          
+            contexto.Add(post);
+            contexto.SaveChanges();         
+        }
+
+        public IList<Post> ListaPublicados()
+        {        
+           return contexto.Posts.Where(p => p.Publicado)
+                                   .OrderByDescending(p => p.DataPublicacao).ToList();     
+        }
+
+        public IList<Post> BuscaPeloTermo(string termo)
+        {            
+            return contexto.Posts
+                    .Where(p => (p.Publicado) && (p.Titulo.Contains(termo) || p.Resumo.Contains(termo)))
+                    .ToList();           
         }
 
         public void Remove(int id)
-        {
-            using (BlogContext contexto = new BlogContext())
-            {
-                Post post = contexto.Posts.Find(id);
-                contexto.Posts.Remove(post);
-                contexto.SaveChanges();
-            };
+        {           
+             Post post = contexto.Posts.Find(id);
+             contexto.Posts.Remove(post);
+
+             contexto.SaveChanges();            
         }
 
         public List<Post> FiltraPorCategoria(string categoria)
-        {
-
-            using var contexto = new BlogContext();
-            
+        {            
             List<Post> posts = contexto
                                      .Posts
                                      .Where(post => categoria.Contains(post.Categoria))
-                                     .ToList();
-                        
+                                     .ToList();                       
             return posts;
         }
 
         public void Atualiza(Post post)
-        {
-            using var contexto = new BlogContext();     
-            
+        {           
             contexto.Entry(post).State = EntityState.Modified;
 
-            contexto.SaveChanges();            
+            contexto.SaveChanges();          
+        }
+
+        public Post BuscaPorId(int id)
+        {
+            Post post = contexto.Posts.Find(id);
+
+            return post;
         }
 
         public void Publica(int id)
-        {
-            using var contexto = new BlogContext();
-            
+        {            
             Post post = contexto.Posts.Find(id);
 
             post.Publicado = true;
             post.DataPublicacao = DateTime.Now;
 
-            contexto.SaveChanges();
-            
+            contexto.SaveChanges();           
         }
+
+
     }
 }

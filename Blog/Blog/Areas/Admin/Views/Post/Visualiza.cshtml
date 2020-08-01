@@ -1,0 +1,37 @@
+﻿@model Blog.Models.Post
+
+<h1>Editar Post</h1>
+
+<div>
+
+    @using (Html.BeginForm("Edita", "Post"))
+    {
+
+        @Html.HiddenFor(p => p.Id)
+        @Html.HiddenFor(p => p.Publicado)
+        @Html.HiddenFor(p => p.DataPublicacao)
+
+        <br />
+
+        @Html.LabelFor(p => p.Titulo)
+        @Html.TextBoxFor(p => p.Titulo)
+        @Html.ValidationMessageFor(p => p.Titulo)
+
+        <br />
+
+        @Html.LabelFor(p => p.Resumo)
+        @Html.TextBoxFor(p => p.Resumo)
+        @Html.ValidationMessageFor(p => p.Resumo)
+
+        <br />
+
+        @Html.LabelFor(p => p.Categoria)
+        @Html.TextBoxFor(p => p.Categoria)
+        @Html.ValidationMessageFor(p => p.Categoria)
+
+        <br />
+
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+    }
+
+</div>
